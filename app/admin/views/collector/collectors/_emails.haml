@@ -1,0 +1,8 @@
+= table_for @collector.emails do |t, email|
+  - t.resource email
+  - t.link nil
+  
+  - t.column(:address)
+  - t.column(:timestamp) { email.created_at.in_time_zone.to_s(:long) }
+  
+  - t.controls { |c| c.delete }
