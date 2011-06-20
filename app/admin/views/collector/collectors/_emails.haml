@@ -1,8 +1,12 @@
-= table_for @collector.emails do |t, email|
-  - t.resource email
-  - t.link nil
+= table_for Collector::Email do |table|
+  - table.rows(@collector.emails) do |row, email|
+    - row.resource = email
   
-  - t.column(:address)
-  - t.column(:timestamp) { email.created_at.in_time_zone.to_s(:long) }
+    = row.column(:address)
+    = row.column(:timestamp) { email.created_at.in_time_zone.to_s(:long) }
   
-  - t.controls { |c| c.delete }
+    = row.controls do |c|
+      = c.delete
+  
+  - table.empty do
+    No emails have been collected.
