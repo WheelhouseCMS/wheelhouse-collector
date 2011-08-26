@@ -1,9 +1,9 @@
-Collector::Plugin::Routes.draw do  
-  namespace :admin, :module => :collector, :as => :collector do
-    resources :collectors
-    
-    scope "/collectors" do
-      resources :emails
-    end
+Collector::Plugin.routes.draw do  
+  extend Wheelhouse::RouteExtensions
+
+  resources :collectors
+  
+  scope "/collectors" do
+    resources :emails
   end
 end

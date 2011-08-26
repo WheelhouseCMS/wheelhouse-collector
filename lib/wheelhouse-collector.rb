@@ -2,6 +2,8 @@ require "wheelhouse"
 
 module Collector
   class Plugin < Wheelhouse::Plugin
-    resource { Collector }
+    isolate_namespace Collector
+    
+    resource { ::Collector::Collector }
   end
 end
