@@ -5,7 +5,7 @@ class Collector::Collector < Wheelhouse::Resource
   
   has_many :emails, :class => Collector::Email
   
-  icon 'collector/collector.png'
+  icon 'wheelhouse-collector/collector.png'
   
   def renderable?
     false
